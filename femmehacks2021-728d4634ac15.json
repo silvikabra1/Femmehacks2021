@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "femmehacks-304016",
+  "private_key_id": "728d4634ac1548b8b06a8f5d0ce6232b45966fa7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDB08Hrv71UNdjG\nUy47tulo768cnIjXTXXwU4ccelLr1At3z8fXI8nNCyDW2bUAd9UY+4mWnSrNpgls\n3/ggPoeuuUXqL8hmdS8YDY6FZWnGM2tCQ04AOixHbzsBsykCkVnklsuAaI7OEdQ6\ncOE9qhVq1UPS31ZUS+pYd7luzeLMz8U1d2lU/qTiqA8U6osuaWo2Dle1P11GVHw7\ngQc6Jlvim6MZfXN5mvR2TXNw+eg7obKPUVCwUifR5AF7Jr1p0QxhapMZ0Y2Z69c/\nsPvEP01HOd1KjlC0mTglUZoNP3Lb+4blXxE8354xN/XUQLNxmttTTfCHXSROu95h\ncSsrPj51AgMBAAECggEAA4T60nMK1wqbQw6jmkX5+wPPJC/bdD1d1N1PaL733nxd\nMPG+6TMnKOf40q3lUXrbjbaTiv6TlmRba3Stprg78no+wL/ZXbLnBgLJAbcTspug\naPWb5vkncKyeX6uHJRrKjRIH4+8CGM/OELmX/WynMudocd3ITYOLX8vcvBxU7+8V\nuJEIP7z8LjxCLv8Tb3Rnl+6FugQoON/rB57g/AeRVkHEU17Rg5WyCFWU7d/hq0k4\nHaOBgtvfUU4hbOh67Jqrg3BbLKQw3xxarndyYtDX2924E2bmY9PUatBEHOXb9/ud\nAG0jbtbyANz+3JkTrupcozkmgShOn1c7BqxcL992yQKBgQD8WlQNuj29JOnDE3zo\nSdoZ2m0Pj1QkfK+yGpsk/4v/0NMeFXCzbyU2otusY8sc/mnCLJisqqiss/8BOYnt\nLOkSTYsG1/QlevMujheKSNz7jghnUBHylCYSsl1MC8bEHYyiBFW4eCg0Lrq4io6u\nPKULc/kCvZCx/kxdJpzfrLX2cwKBgQDEoORdlwvJXGlydVNMTEj1EnZUgnKzMAN3\nMGgesvRrKoAcpnBg3lBkU74XMgKTfEZEGajnfkPnSXf9c4rHZkwzRxnuI+I+iWj/\n27yKYU3zxp8wCVWwlCPtYLyaVxj67rYapuwesGnJkR42fcTkFEBXfbXLTUf561ui\nYUD2rznVdwKBgQC26InwAUPqqqy89o0cmRr6jjVqh8rHP5DhmSNGp+tDmorLTWMI\ny9C/Tz/GLfb0pvrlAQoQbQohU73Ll3b/cAPnfkj8xt5xpDJLVjZ9xt5Vftdces7n\ncrY96wZwrkB9uaVLcbToJj+NwykXxWYxqEdAi+i7MceFG/shsXEXNsoVPQKBgGX+\ne1bcwf1qVTxNBa9fJr0RHZZKsEqojjOmRWwfMc/hFOFHqKVmzFauZb1McK+mWCB9\nGvMxuPFhV799zrAOLVqv+BBiRrpftrp5dfxl6vSXw/076loVDenVMx/wLAIGDyoW\nCgcFRWqMPxrO9HHG23VGvSU+6iYGYtsBDZyoWhyTAoGAbp1XKoAuoqB/8pD7g1s1\ngbTkurXguvF04luTCoNPd/iYGde4mH0obH/1l6Bz2ITZlAuwYNq6iJfJFubBGL0+\nExMkL0SuhtJ3TGMj5Er6gU7KOJQvmAUjrTeHfC+pE0OH/faPC271DUPexXBSC0ah\n92VEwyvMuAXia1dgfCYuRrc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "femme-415@femmehacks-304016.iam.gserviceaccount.com",
+  "client_id": "117500647111688889686",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/femme-415%40femmehacks-304016.iam.gserviceaccount.com"
+}
