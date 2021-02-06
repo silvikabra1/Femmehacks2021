@@ -1,8 +1,9 @@
 '''
-twitter.py: Uses the Twitter API to retrieve a given stock, and the top most recent tweets in x days
-input: str stock_name
-return: [(tweet_str, like_count, retweet_count)]
+twitter.py: Uses the Twitter API to retrieve a given stock, and retunrns 3 sorted arrays pos and neg with the top 5 positive, negative, and netural
+ sentiment scores (sorted by sentiment). retrieve_tweets is the main function to be called.
+return: pos, neg, neutral each in format of: [[username, nickname, date, content, retweet_count, favorite_count, profile_pic_url]]
 '''
+
 # twitter API
 import os
 import tweepy as tw
@@ -17,6 +18,7 @@ auth = tw.OAuthHandler("wFJKLMVIB4imf9tSKjV1kU0k5", "qBReRvjwM8kP3WfB2NoEvFTKcyO
 auth.set_access_token("1358055137462210565-KjCCjHFJ8zM985f7jEBUchqaLmqezW", "JjlIrB920JYPuk01U0OpIK0BbiRM5amkVGNSEI5tHovm4")
 api = tw.API(auth, wait_on_rate_limit=True)
 
+# analyzes the tweet's content and returns a float from -1 to 1 (sentiment score)
 def sentiment_score(text):
     document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
 
@@ -27,20 +29,22 @@ def sentiment_score(text):
     # print("Sentiment: " + str(sentiment.score))
     return sentiment.score
 
-
+# testing git
+# main function to be called. Returns two lists pos and neg with the top 5 positive and negative tweets and its properties.
+# input should be ABC, not #ABC or $ABC. The search uses the $ filter only.
 def retrieve_tweets(stock_name):
+    # UNCOMMENT IF you want search words to also include # and plain "ABC". make sure to comment out line 37
+    # search_words = "$" + stock_name + " OR " + "#" +  stock_name + " OR " + stock_name + " -filter:retweets"
     search_words = "$" + stock_name + " -filter:retweets"
     date_since = "2021-01-31"
-    # tweets = api.search(q=search_words, result_type='popular')
     tweets = tw.Cursor(api.search,
               q=search_words,
-              result_type='popular',
               tweet_mode='extended',
+              result_type='popular',
               lang="en",
               since=date_since
               ).items()
-    
-    ''' username, nickname, date, content, retweet_count, favorite_count, profile_pic_url, pos_sentiment, neg_sentimentr'''
+
     tweets_arr = []
     month = ""
     day = ""
@@ -49,8 +53,6 @@ def retrieve_tweets(stock_name):
     ampm = ""
 
     for tweet in tweets:
-        # neg = calculate_neg_sentiment(tweet.full_text)
-
         # month
         if tweet.created_at.month == 1:
             month = "January"
@@ -80,31 +82,69 @@ def retrieve_tweets(stock_name):
         tweets_arr.append([tweet.user.name, tweet.user.screen_name, date, tweet.full_text, tweet.retweet_count, 
             tweet.favorite_count, tweet.user.profile_image_url_https, sentiment_score(tweet.full_text)])
 
+    if len(tweets_arr) > 50:
+        # sort by number of likes to get top 50 tweets on the stock
+        tweets_arr.sort(key=lambda x: x[5], reverse=True)
+        tweets_arr = tweets_arr[:51]
+
     tweets_arr.sort(key=lambda x: x[-1])
 
     neg = []
     pos = []
+    neut = []
     neg_counter = 0
     pos_counter = -1
+    neut_start = -1
+    neut_end = -1
+    for i in range(len(tweets_arr)):
+        if tweets_arr[i][-1] > - 0.3 and tweets_arr[i][-1] < 0.3:
+            neut_start = i
+            break
+    for j in range(len(tweets_arr) - 1, -1, -1):
+        if tweets_arr[j][-1] > - 0.3 and tweets_arr[j][-1] < 0.3:
+            neut_end = i
+            break
 
-    while neg_counter < 5 and tweets_arr[neg_counter][-1] < -0.3:
-        neg.append(tweets_arr[neg_counter][0:7])
-        neg_counter += 1
 
-    while pos_counter > -6 and tweets_arr[pos_counter][-1] > 0.3:
-        pos.append(tweets_arr[pos_counter][0:7])
-        pos_counter -= 1
+    if len(tweets_arr) > 0:
+        while neg_counter < 5 and tweets_arr[neg_counter][-1] < -0.3:
+            neg.append(tweets_arr[neg_counter][0:7])
+            neg_counter += 1
+        while pos_counter > -6 and tweets_arr[pos_counter][-1] > 0.3:
+            pos.append(tweets_arr[pos_counter][0:7])
+            pos_counter -= 1
+        if neut_start != -1 and neut_end != -1 and neut_start <= neut_end:
+            mid = int(neut_start + (neut_end - neut_start) / 2)
+            neut.append(tweets_arr[mid][0:7])
+            l = mid - 1
+            r = mid + 1
+            left_valid = True
+            right_valid = True
+            while (left_valid or right_valid) and len(neut) < 5:
+                if l >= 0 and tweets_arr[l][-1] > -0.3:
+                    neut.append(tweets_arr[l][0:7])
+                    l -= 1
+                else:
+                    left_valid = False
+                if r < len(tweets_arr) and tweets_arr[r][-1] < 0.3:
+                    neut.append(tweets_arr[r][0:7])
+                    r += 1
+                else:
+                    right_valid = False
+     
+    # print("Positive Tweets")
+    # for p in pos:
+    #     print(p)
+
+    # print("\nNegative Tweets")
+    # for n in neg:
+    #     print(n)
     
-    print("Positive Tweets")
-    for p in pos:
-        print(p)
+    # print("\nNeutral Tweets")
+    # for n in neut:
+    #     print(n)
 
-    print("\nNegative Tweets")
-    for n in neg:
-        print(n)
-
-
-    return pos, neg
+    return pos, neg, neut
 
 
 def main():
