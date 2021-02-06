@@ -29,6 +29,7 @@ def sentiment_score(text):
     # print("Sentiment: " + str(sentiment.score))
     return sentiment.score
 
+# testing git
 # main function to be called. Returns two lists pos and neg with the top 5 positive and negative tweets and its properties.
 # input should be ABC, not #ABC or $ABC. The search uses the $ filter only.
 def retrieve_tweets(stock_name):
