@@ -23,20 +23,27 @@
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "connected-react-router": "^6.5.2",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^24.9.0",
+    "pip": "0.0.1",
+    "plotly.js": "^1.58.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-plotly.js": "^2.5.1",
+    "react-query": "^3.7.1",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
     "redux-freeze": "^0.1.5",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^5.2.1",
+    "victory": "^35.4.8"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
