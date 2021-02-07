@@ -11,7 +11,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const MainTweets = () => {
+const MainTweets = (ticker) => {
     return(
         <Container>
             <AllTweets percent1={75} percent2={15} percent3={10} />

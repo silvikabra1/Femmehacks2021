@@ -15,8 +15,7 @@ function App() {
         <Router>
             <Switch>
               <Route exact path='/home' component={Home}></Route>
-              <Route exact path='/stocks/:ticker' component={Graph}></Route>
-              <Route exact path='/test' component={StockInfo}></Route>
+              <Route exact path='/stocks/:ticker' component={StockInfo}></Route>
             </Switch>
         </Router>
       </main>

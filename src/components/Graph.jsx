@@ -7,10 +7,11 @@ import axios from 'axios';
     var stockChartXValues = [];
     var stockChartYValues = [];
     const API_KEY = "7UBTJC1LFGRYGRFG";
-    const StockSymbol = ticker;
-    const queryURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=GME&outputsize=compact&apikey=7UBTJC1LFGRYGRFG";
+    console.log(ticker);
+    var StockSymbol = ticker;
+    const queryURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + StockSymbol + "&outputsize=compact&apikey=" + API_KEY;
    
-    const fetchStockData = useQuery('fetchStockData', () => axios(queryURL))
+    const fetchStockData = useQuery('fetchStockData', () => axios(queryURL));
 
     const StockMarketGraph = (res) => {
         const { data } = res;
@@ -21,6 +22,8 @@ import axios from 'axios';
             );
         }
         for (var key in data['Time Series (Daily)']) {
+            console.log(key);
+            console.log(data['Time Series (Daily)'][key]['1. open']);
             stockChartXValues.push(key);
             stockChartYValues.push(data['Time Series (Daily)'][key]['1. open']);
         }
@@ -61,7 +64,7 @@ import axios from 'axios';
         )
     }
 
-    setInterval(fetchStockData, 300000);
+    setInterval(fetchStockData, 30000);
     return(
         <div>
             {fetchStockData.error && <div>Something went wrong!</div>}

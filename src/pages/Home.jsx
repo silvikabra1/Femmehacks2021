@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
+import SearchBar from "../components/SearchBar";
+
 
 const Container = styled.div`
   background-color: LightGoldenRodYellow;
+  height: 100vh;
 `;
 
 const Logo = styled.img`
@@ -16,11 +19,13 @@ const Label = styled.div`
   font-size: 1.25em;
   color: LightSlateGrey;
   text-align: center;
+  
 `;
 
 const Home = () => (
   <Container>
-    <Logo></Logo>
+    <Logo src="../stocktweets_logo.png"></Logo>
+    <SearchBar/>
     <Label>Made by Bethany Hsiao, Silvi Kabra, Claire Wang, Maggie Yu</Label>
   </Container>
 )

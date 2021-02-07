@@ -30,16 +30,16 @@ const GraphContainer = styled.div`
 
 // <Tweets imgURL={picURL} name = "Twitter Support" username = "TwitterSupport" tweet={tweetTest} date="1:47 PM @ Jun 18, 2019" url={tweetURL}/>
 
-const MainStockSummary = () => {
-    const tickerName = "GME";
+const MainStockSummary = (ticker) => {
+    console.log(ticker.ticker);
    return(
         <div>
             <OuterContainer>
                 <StockInfoContainer>
-                    <Summary ticker={tickerName} name="Gamestop" sector='Gaming' industry='Gaming' high={1.35} low = {0.35} peratio={1.00} open={3.00} vol={1.5} mktcap={20} description="Buy games here"/>
+                    <Summary ticker={ticker.ticker} name="Gamestop" sector='Gaming' industry='Gaming' high={1.35} low = {0.35} peratio={1.00} open={3.00} vol={1.5} mktcap={20} description="Buy games here"/>
                 </StockInfoContainer>
                 <GraphContainer>
-                    <Graph ticker={tickerName} />
+                    <Graph ticker={ticker.ticker} />
                 </GraphContainer>
             </OuterContainer>
         </div>

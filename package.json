@@ -32,6 +32,7 @@
     "pip": "0.0.1",
     "plotly.js": "^1.58.4",
     "react": "^16.8.6",
+    "react-autocomplete-input": "^1.0.15",
     "react-dom": "^16.8.6",
     "react-plotly.js": "^2.5.1",
     "react-query": "^3.7.1",
@@ -89,5 +90,6 @@
   },
   "jest": {
     "testEnvironment": "node"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

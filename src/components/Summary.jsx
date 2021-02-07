@@ -51,7 +51,7 @@ const Description = styled.h6`
     width: 50%;
 `;
 
-const Summary = ({ ticker, name, sector, industry, high, low, peratio, open, vol, mktcap, description}) => {
+const Summary = ( {ticker, name, sector, industry, high, low, peratio, open, vol, mktcap, description}) => {
   return (
     <Container>
             <Heading>{ticker}</Heading>
