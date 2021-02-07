@@ -1,4 +1,6 @@
-# Flask React Boilerplate
+# Stock Tweets
+
+# Build Instructions!
 
 [![Build Status](https://travis-ci.org/YaleDHLab/flask-react-boilerplate.svg?branch=master)](https://travis-ci.org/YaleDHLab/flask-react-boilerplate)
 
@@ -38,30 +40,8 @@ npm run start
 
 That will start the webpack dev server on port 7081.
 
-## Tests
+# Stock Tweets Background
 
-To run the Javascript tests (located in `src/tests/`), run:
-
-```bash
-npm run jest
-```
-
-To run the Python tests (located in `server/tests/`), run:
-
-```bash
-pytest
-```
-
-## Linting
-
-To lint the Javascript files (located in `src`), run:
-
-```bash
-npm run lint-js
-```
-
-To lint the Python files (located in `server`), run:
-
-```bash
-npm run lint-py
+A web app that combines Twitter sentiment analysis on popular tweets about stocks with the stock market trends of those specific stocks, categorizing them into bearish, neutral, and negative tweets.
+``
 ```
